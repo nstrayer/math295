@@ -2,4 +2,5 @@
 
 ---
 
-#HW1
+#HW1:
+[iPython notebook](http://nbviewer.ipython.org/github/nstrayer/math295/blob/master/HW01/work/hw01.ipynb)
