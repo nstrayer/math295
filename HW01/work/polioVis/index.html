@@ -7,13 +7,26 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<div id = "container">
+
 <div id = "header">
-<h1>Visualizing the impact of Polio:</h1>
-</div>
+	<p id = "title" >Visualizing the impact of Polio:</p> 
+	<p id = "currentYear">Currently showing: 1931 </p>
+	<p id = "instructions">Click <strong id = "startButton">here</strong> to watch polio hit the United States or use the slider to manually drag year.</p>
+	<div id = "slider">
+	</div>
+</div> <!-- closes header -->
+
 <div id = "visualization">
 </div>
+
+</div> <!-- end of container div. -->
 
 <script src="script.js"></script>
 </body>

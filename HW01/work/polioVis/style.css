@@ -1,6 +1,41 @@
 #header {
 	border-bottom: dotted 1px;
+	width: 1000px;
+  	top: 0;
 }
-#header h1 {
+
+#header p {
 	font-family: optima;
 }
+
+#title {
+	font-size: 25px;
+	float: left;
+}
+
+#currentYear {
+	text-align: right;
+	float: right;
+	padding-right: 15px;
+	font-size: 20px;
+}
+
+#instructions{
+	clear:both;
+	font-size: 15px;
+}
+
+#slider {
+	width: 1000px;
+	
+}
+
+#container {
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding:10px;
+}
+
+
