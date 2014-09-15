@@ -3,9 +3,9 @@ d3.json("polioPercent.json", function(data){
 var years = Object.keys(data) 
 
 //Set up the size of the graph
-var height  = 500,
+var height  = 400,
 	width   = 1000,
-	padding = 10;
+	padding = 0;
 
 var maxPercentage = 0, //need to seed this to find max and min percents. 
 	minPercentage = 0.2;
@@ -21,20 +21,19 @@ for (var i = 0; i < years.length; i++){
 	}
 }
 
-console.log("Max = " + maxPercentage + " Min = " + minPercentage)
-
 var yScale = d3.scale.linear()
 				.domain([0, maxPercentage])
-				.range([0, height - padding]) //-50 for fitting text
+				//.range([0, height]) 
+				.range([height,0])
 
 var xScale = d3.scale.ordinal()
 				.domain(d3.range(data[31].length + 1))
-				.rangeRoundBands([0,width],0.2);
+				.rangeRoundBands([35,width - padding],0.2);
 
 var svg = d3.select("#visualization")
 			.append("svg")
-			.attr("height", height)
-			.attr("width", width)
+			.attr("height", height + padding)
+			.attr("width", width + padding)
 
 function fillColor(value){
 	if (value != 0) {
@@ -47,8 +46,10 @@ svg.selectAll("rect")
 	.enter()
 	.append("rect")
 	.attr("x", function(d,i) {return xScale(i) })
-	.attr("y", function(d){return height - yScale(d["polioPercent"])})
-	.attr("height", function(d){return yScale(d["polioPercent"])})
+	//.attr("y", functon(d){return height - yScale(d["polioPercent"])})
+	//.attr("y", function(d){return yScale(d["polioPercent"])})
+	.attr("y", function(d){return yScale( d["polioPercent"] ) }  )
+	.attr("height", function(d){return height - yScale(d["polioPercent"])})
 	.attr("width", xScale.rangeBand())
 	.attr("fill", function(d) { return fillColor(d["polioPercent"])})
 	.on("click", function(){
@@ -61,38 +62,50 @@ svg.selectAll("text")
 	.append("text")
 	.attr("class", "stateNames")
 	.attr("x", function(d,i) {return xScale(i) + (xScale.rangeBand())/2 })
-	.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+	//.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+	.attr("y", function(d){return ( yScale( d["polioPercent"] ) -3 )})
 	.text(function(d){return d["state"]})
 	.attr("text-anchor", "middle")
 	.attr("font-family", "optima")
 	.attr("font-size", 9)
 
 
+var startYear = [31]
 svg.selectAll("text")
+	.data(startYear, function(d){return d})
+	.enter()
 	.append("text")
-	.attr("x", width - 20)
-	.attr("y", height - 300)
-	.text("1931")
+	.attr("id", "bigYear")
+	.attr("x", width *(5/8) )
+	.attr("y", height - 250)
+	.text(function(d){return "19" + d})
 	.attr("font-family", "optima")
-	.attr("font-size", 30)
+	.attr("font-size", 130)
+	.attr("opacity", .5)
 
 
 function changeYear(year){
 	d3.selectAll("rect")
 		.data(data[year], function(d) {return d["state"]} )
 		.transition()
-		.attr("y", function(d){return height - yScale(d["polioPercent"])})
-		.attr("height", function(d){return yScale(d["polioPercent"])})
+		//.attr("y", function(d){return height - yScale(d["polioPercent"])})
+		.attr("y", function(d){return yScale(d["polioPercent"])})
+		.attr("height", function(d){return height - yScale(d["polioPercent"])})
 		.attr("fill", function(d) { return fillColor(d["polioPercent"])})
 
 	d3.selectAll(".stateNames")
 		.data(data[year], function(d) {return d["state"]})
 		.transition()
-		.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+		//.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+		.attr("y", function(d){return ( yScale( d["polioPercent"] ) -3 )})
 
 	d3.select("#currentYear")
 		.text("Currently showing: 19" + year)
+
+	d3.select("#bigYear")
+		.text("19" + year)
 }
+
 
 //slider code
 $(function() {
@@ -114,10 +127,11 @@ function history(theYear){
 	d3.selectAll("rect")
 		.data(data[theYear], function(d) {return d["state"]} )
 		.transition()
-		.ease("log")
-		.duration(500)
-		.attr("y", function(d){return height - yScale(d["polioPercent"])})
-		.attr("height", function(d){return yScale(d["polioPercent"])})
+		//.ease("exp")
+		.duration(300)
+		//.attr("y", function(d){return height - yScale(d["polioPercent"])})
+		.attr("y", function(d){return yScale(d["polioPercent"])})
+		.attr("height", function(d){return height - yScale(d["polioPercent"])})
 		.attr("fill", function(d) { return fillColor(d["polioPercent"])})
 		.each("end", function(d,i){ 
 			if (theYear < 69) {
@@ -128,12 +142,16 @@ function history(theYear){
 	d3.selectAll(".stateNames")
 		.data(data[theYear], function(d) {return d["state"]})
 		.transition()
-		.ease("log")
-		.duration(500)
-		.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+		//.ease("exp")
+		.duration(300)
+		//.attr("y", function(d){return (height - 3) - yScale(d["polioPercent"])})
+		.attr("y", function(d){return ( yScale( d["polioPercent"] ) -3 )})
 
 	d3.select("#currentYear")
 		.text("Currently showing: 19" + theYear)
+
+	d3.select("#bigYear")
+		.text("19" + theYear)
 
 	$("#slider").slider('value', theYear);
 }
@@ -141,4 +159,25 @@ function history(theYear){
 d3.select("#startButton")
 	.on("click", function(){history(31)})
 
+var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left")
+    //.ticks(3)
+    .tickSize(-10);
+
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+d3.select(".y")
+	.selectAll("text")
+	.attr("x", 35)
+	.attr("font-family", "optima")
+	.attr("font-size", 8.5)
+	.attr("y", function(d){
+		return (d3.select(this).attr("y") - 3)
+	})
+
 })
+
