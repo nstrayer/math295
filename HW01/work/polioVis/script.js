@@ -4,7 +4,8 @@ var years = Object.keys(data)
 
 //Set up the size of the graph
 var height  = 400,
-	width   = 1000,
+	//width   = 1000,
+	width   = 800,
 	padding = 0;
 
 var maxPercentage = 0, //need to seed this to find max and min percents. 

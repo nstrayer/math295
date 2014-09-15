@@ -1,6 +1,7 @@
 #header {
 	/*border-bottom: dotted 1px;*/
-	width: 1000px;
+	/*width: 1000px;*/
+	width: 800px;
   	top: 0;
 }
 
@@ -18,12 +19,14 @@
 }
 
 #slider {
-	width: 1000px;
+	/*width: 1000px;*/
+	width: 800px;
 	
 }
 
 #container {
-	width: 1000px;
+	/*width: 1000px;*/
+	width: 800px;
 	margin: 0 auto;
 	position: absolute;
 	left: 0;
