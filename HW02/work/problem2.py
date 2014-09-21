@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import os 
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+
 casesFileNames = os.listdir("data/cases") #We're gonna need the names of the files. 
 
 
@@ -37,16 +39,20 @@ for i in range(len(diseases)):
         currentFigure = fig.add_subplot(2,4,i+1)
         currentFigure.plot([year for year in data.index],[number for number in data["number"]],niceRed,marker='.')
         ax = pd.rolling_mean(data["number"],6).plot(linewidth=4, color=steelBlue)
+        #ax = pd.rolling_std(data["number"],6).plot(linewidth=4, color=steelBlue)
+        #ax = pd.pct_change(data["number"],6).plot(linewidth=4, color=steelBlue)
         ax.set_xlabel("")
+        ax.grid(b=False)
         ax.set_xlim([1900,2020])
         if i == 0:                               # We only need one axis-label and legend
-            ax.set_ylabel( "Number of Infected" )
+            ax.set_ylabel( "Number of Infected (in thousands)" )
         if i == 3:
             plt.legend(["Real Data", "Moving Average"])
         currentFigure.set_title(diseasesNames[i].capitalize())
+        ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, pos: ('%.0f')%(y*1e-3)))
         plt.xticks(rotation=70)
         allDiseasesByYear.append(data)
     except: 
         print diseases[i]
         
-fig.savefig("diseaseCasesByYear.pdf")
+fig.savefig("figures/diseaseCasesByYear.pdf")

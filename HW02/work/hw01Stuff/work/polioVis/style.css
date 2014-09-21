@@ -1,0 +1,47 @@
+#header {
+	/*border-bottom: dotted 1px;*/
+	/*width: 1000px;*/
+	width: 800px;
+  	top: 0;
+}
+
+#header p {
+	font-family: optima;
+}
+
+#title {
+	font-size: 35px;
+}
+
+#instructions{
+	clear:both;
+	font-size: 15px;
+}
+
+#slider {
+	/*width: 1000px;*/
+	width: 800px;
+	
+}
+
+#container {
+	/*width: 1000px;*/
+	width: 800px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding:10px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+}
+
+#visualization {
+	padding-top: 10px;
+}
+
