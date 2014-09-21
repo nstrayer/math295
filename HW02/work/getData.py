@@ -29,20 +29,20 @@ def getTychoData(stat, state, disease):
 	url = baseUrl + "event=" + stat + "&disease=" + disease + "&loc_type=state&state=" + \
 		state + "&apikey=" + apiKey + ".csv"
 
-	outfile = "data/%s_%s_%s_tycho.csv" %(state,disease,stat)
+	outfile = "data/%s/%s_%s_%s_tycho.csv" %(stat,state,disease,stat)
 	urllib.urlretrieve(url,outfile)
 
 
-# for state in states:
-# 	for disease in diseases:
-# 		try: 
-# 			getTychoData(statistic[1], state, disease)
-# 		except:
-# 			print "There was a problem with " +state + " and " + disease
+for state in states:
+	for disease in diseases:
+		try: 
+			getTychoData(statistic[1], state, disease)
+		except:
+			print "There was a problem with " + state + " and " + disease
 
-for state in states:  # I messed up the names of a couple of the diseases at first so I had 
-	try: 				# to re-run the loop at specific points to fix it
-		disease = diseases[2]
-		getTychoData("cases", state, disease)
-	except:
-		print "There was a problem with " +state + " and " + disease
+# for state in states:  # I messed up the names of a couple of the diseases at first so I had 
+# 	try: 				# to re-run the loop at specific points to fix it
+# 		disease = diseases[2]
+# 		getTychoData(statistic[1], state, disease)
+# 	except:
+# 		print "There was a problem with " + state + " and " + disease

@@ -23,4 +23,8 @@ This was relatively straightforward. A couple of the problems that I ran into al
 —
 ## Problem 2
 
+The age old question of how to represent data! I am choosing to go summed by the whole country as state boundaries, in my opinion, especially for something like this are rather arbitrary. No-one*  looks back and remembers how badly a disease hit Ohio in the 1920’s, (an exception would be for something like AIDS in San Fransisco in the 1980’s, but we aren’t looking at that data.) 
+
+I read in all of the files grabbed in problem 1, then concatenated them by disease, grouped by year, then summed to get the whole country average. __18 to 25 in problem2.py__
+
 
