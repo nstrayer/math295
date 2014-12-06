@@ -1,0 +1,20 @@
+Homework 03  MATH 295 DATA SCIENCE II
+Instructor: James P. Bagrow
+bagrow.com/ds2/
+
+Assigned: 2014-10-06
+Due:      2014-10-10 3 PM
+
+
+Please read the included two papers and write a short (a few hundred words)
+EXECUTIVE SUMMARY of each. Then answer how you think the ideas in these papers
+may apply to your own research, assignments and projects in this course, and/or
+future work you may undertake in other settings.
+
+Please upload the file HW01_<lastName>.pdf to blackboard.
+
+
+Here are some links with tips for your summary:
+
+http://libguides.usc.edu/content.php?pid=83009&sid=1481087
+http://www.griffith.edu.au/__data/assets/pdf_file/0003/320178/writing-an-executive-summary.pdf

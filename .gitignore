@@ -1,3 +1,13 @@
 HW02/work/data/cases/*.csv
 HW02/work/data/deaths/*.csv
 *.zip
+litw/
+*.map
+*.ped
+plink-1.07-mac-intel/
+hgdp/
+plink
+plink.*
+.RData
+.Rhistory
+.pversion
