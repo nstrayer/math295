@@ -136,7 +136,7 @@ genome[10:20,"phenotype"]
 # R uses NA for missing data, let's make sure this data works like that. 
 #---------------------------------------------------------------------------------------------------------
 
-#By scanning through a couple of SNPs and running summarys we find that our data has 00 for it's missing values:
+#By scanning through a couple of SNPs and running summarys we find that our data has 00 for it's missing values, for example:
 summary(genome$rs2455122)
 # 00  CC  GC  GG 
 #  1 115  28   2 
