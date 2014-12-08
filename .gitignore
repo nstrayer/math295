@@ -11,3 +11,4 @@ plink.*
 .RData
 .Rhistory
 .pversion
+*.csv

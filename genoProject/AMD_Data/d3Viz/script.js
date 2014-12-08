@@ -195,5 +195,10 @@ d3.selectAll(".selector")
 		}
 	})
 
-updateManhattan("chr1", transitionSpeed)
+updateManhattan("fixed_chr1", transitionSpeed)
 d3.select("#SBPSelect").classed("menuSelected", true)
+
+function submitFunc(){
+	file = document.getElementById("filename").value;
+	updateManhattan(file, transitionSpeed)
+}

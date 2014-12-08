@@ -13,14 +13,13 @@
 			<h3>SNP name: <strong id = "SNPName"></strong></h3>
 			<h3>P-Value:  <strong id = "PValue"></strong></h3>
 	    </div>
-		<!-- <div id = "speedDiv">
-			<h3>Speed of transition:</h3>
-			<div id = "speedSelector">
-				<strong id = "slow" class = "selector">Slow</strong>
-				<strong id = "med" class = "selector selected">Med.</strong>
-				<strong id = "fast" class = "selector">Fast</strong>
-			</div>
-		</div> -->
+		<div = "inputFunction">
+			<h3>Enter the file prefix (e.g. "foo" for foo_data.csv):
+			<form name="myform" action="JavaScript:submitFunc()">
+				File: <input type = "text" id = "filename" name = "filename" autofocus>
+				<input type = "submit" name = "submit" onclick = "submitFunc()">
+			</form>
+		</div>
 	</div>
 
 	<div id = "visualization" class = "Absolute-Center"></div> <!-- closes visualization div -->

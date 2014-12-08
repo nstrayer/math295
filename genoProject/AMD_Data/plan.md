@@ -9,3 +9,10 @@ Walk through the hicups that came with the process of loading the data, includin
 Once a few figures have been put up using the first chromosome bring in the full genome. 
 
 Try and figure out the best way of plotting this. A manhattan plot most likely won’t work for 230,000 SNPs. What to do? 
+
+Talk about how incomplete sequencing is actually okay for this stuff. Basically bring in LD to the mix. Test to see if the two significant SNPS are in LD from eachother. 
+
+Break up the groups by only male and only female. See how that changes things. They didn’t do that in the paper. 
+
+
+http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002822

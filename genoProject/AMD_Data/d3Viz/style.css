@@ -39,7 +39,7 @@ body {
 }
 
 #currentlyShowing {
-	width: 50%;
+	width: 70%;
 	margin: 0 auto;
 }
 
@@ -57,10 +57,42 @@ body {
 	padding-right: 50px;
 }
 
+#inputFunction {
+	float: left;
+}
+
 #infoDiv {
 	float: right;
+	width: 15%;
+	text-align: left;
 }
 
 strong {
 	font-weight: normal;
+}
+
+input{
+
+	font-size: 25px;
+	font-family: optima;
+}
+
+input[type="text"] {
+	padding: 0px;
+	width: 300px;
+	border: solid 1px steelblue;
+}
+
+input[type="submit"] {
+	border: solid 0px grey;
+	padding: 5px;
+	/*box-shadow: 1px 1px 2px 0 #707070;*/
+	padding
+	transition: box-shadow 0.3s;
+}
+
+
+input:focus,
+input[type="text"].focus {
+	outline:0;
 }
