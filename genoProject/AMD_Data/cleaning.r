@@ -1,7 +1,7 @@
 setwd("/Users/Nick/fall14/math295/genoProject/AMD_Data")
 
-#genome_raw  = data.frame(read.table("amd.out_.ped"))      #The whole genome
-genome_raw  = data.frame(read.table("amd_chr1.out.ped")) #Just chromosome 1
+genome_raw  = data.frame(read.table("amd.out_.ped"))      #The whole genome
+#genome_raw  = data.frame(read.table("amd_chr1.out.ped")) #Just chromosome 1
 
 #Let's break up the object into the conditions and the SNPs
 SNPs = genome_raw[,7:length(genome_raw)]
@@ -95,8 +95,8 @@ genome = genome[,!(names(genome) %in% c("family_ID", "mother_ID", "father_ID"))]
 
 #The columns of .map files are chromosome, marker ID, genetic location and physical location. We are only interested in marker ID.
 #Because R likes to give weird datatypes when selecting out of a dataframe we have to specifiy we want this in a vector of strings.
-#SNP_Names = as.character(read.table("amd.out_.map")[,2])      #Whole genome
-SNP_Names = as.character(read.table("amd_chr1.out.map")[,2]) #First chromosome
+SNP_Names = as.character(read.table("amd.out_.map")[,2])      #Whole genome
+#SNP_Names = as.character(read.table("amd_chr1.out.map")[,2]) #First chromosome
 
 #Now that we have the names let's put them into the SNP column names of the big dataframe:
 names(genome)[4:length(genome)] = SNP_Names
@@ -151,6 +151,7 @@ summary(genome$rs2455122)
 #Nice. 
 
 #Let's output our cleaned data for analysis!
-write.csv(genome, file = "genome_chr1.csv")
-#write.csv(genome, file = "genome_full.csv")
+#write.csv(genome, file = "genome_chr1.csv")
+
+write.csv(genome, file = "genome_full.csv")
 
