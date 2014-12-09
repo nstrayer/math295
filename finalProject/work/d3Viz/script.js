@@ -203,7 +203,7 @@ d3.selectAll(".selector")
 		}
 	})
 
-updateManhattan("fixed_chr1", transitionSpeed)
+updateManhattan("chr1", transitionSpeed)
 d3.select("#SBPSelect").classed("menuSelected", true)
 
 function submitFunc(){
