@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="jquery-2.1.1.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<div id = "container" >
+	<div id = "currentlyShowing" class = "header">
+
+		<div id = "title">Manhattan Plot</div>
+		<div id = "infoDiv">
+			<h3>SNP name: <strong id = "SNPName"></strong></h3>
+			<h3>P-Value:  <strong id = "PValue"></strong></h3>
+	    </div>
+		<div = "inputFunction">
+			<h3>Enter the file prefix (e.g. "foo" for foo_Data.csv):
+			<form name="myform" action="JavaScript:submitFunc()">
+				<input type = "text" id = "filename" name = "filename" autofocus>
+				<input type = "submit" name = "submit" onclick = "submitFunc()">
+			</form>
+		</div>
+	</div>
+
+	<div id = "visualization" class = "Absolute-Center"></div> <!-- closes visualization div -->
+</div>
+<script src="script.js"></script>
+</body>
+</html>

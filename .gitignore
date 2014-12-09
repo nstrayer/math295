@@ -12,3 +12,6 @@ plink.*
 .Rhistory
 .pversion
 *.csv
+backupFinished/
+backupFinal/
+
